@@ -8,8 +8,8 @@ let win
 function createWindow () {
   // Criar uma janela de navegação.
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1280,
+    height: 720,
     webPreferences: {
       nodeIntegration: true
     }
@@ -19,7 +19,7 @@ function createWindow () {
   win.loadFile('index.html')
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
 
   // Emitido quando a janela é fechada.
   win.on('closed', () => {
