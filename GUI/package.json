@@ -1,0 +1,26 @@
+{
+  "name": "bd_inventario_rpg",
+  "version": "1.0.0",
+  "description": "Sistema de inventário para um jogo RPG.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreakSkipper/BD_Inventario_RPG.git"
+  },
+  "contributors": [
+    "Eduardo F. Assis",
+    "Alexandre Souza"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FreakSkipper/BD_Inventario_RPG/issues"
+  },
+  "homepage": "https://github.com/FreakSkipper/BD_Inventario_RPG#readme",
+  "devDependencies": {
+    "electron": "^7.0.0"
+  }
+}
