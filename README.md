@@ -1,6 +1,6 @@
 # BD_Inventario_RPG
 
-## Install electron
+## Running electron
 
 * Must have _Node_ installed;
 * Run:
