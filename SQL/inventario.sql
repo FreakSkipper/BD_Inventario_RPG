@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2019 at 02:23 AM
+-- Generation Time: Nov 13, 2019 at 05:20 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `inventario_rpg`
+-- Database: `inventario`
 --
 
 -- --------------------------------------------------------
@@ -29,6 +29,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `armazem` (
+  `id_personagem` int(11) NOT NULL,
+  `id_armazem` int(11) NOT NULL,
+  `cidade` varchar(32) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `armazeminventario`
+--
+
+CREATE TABLE `armazeminventario` (
   `id_armazem` int(11) NOT NULL,
   `id_item` int(11) NOT NULL,
   `quantidade` int(11) DEFAULT 0
@@ -46,13 +58,6 @@ CREATE TABLE `inventario` (
   `quantidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `inventario`
---
-
-INSERT INTO `inventario` (`id_personagem`, `id_item`, `quantidade`) VALUES
-(2, 1, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -69,13 +74,6 @@ CREATE TABLE `item` (
   `flags` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `item`
---
-
-INSERT INTO `item` (`id_item`, `nome`, `atributos`, `preco`, `preco_base`, `durabilidade`, `flags`) VALUES
-(1, 'asd', 'asddsdsd', 12, 11, 1, 'ff');
-
 -- --------------------------------------------------------
 
 --
@@ -87,17 +85,8 @@ CREATE TABLE `personagem` (
   `name` varchar(100) NOT NULL,
   `experiencia` float DEFAULT NULL,
   `sexo` tinyint(1) NOT NULL,
-  `raca` varchar(100) NOT NULL,
-  `id_inventario` int(11) NOT NULL,
-  `id_Armazem` int(11) NOT NULL
+  `raca` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='FON	';
-
---
--- Dumping data for table `personagem`
---
-
-INSERT INTO `personagem` (`id_personagem`, `name`, `experiencia`, `sexo`, `raca`, `id_inventario`, `id_Armazem`) VALUES
-(2, 'qwe', 23, 1, 'asd', 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -107,15 +96,22 @@ INSERT INTO `personagem` (`id_personagem`, `name`, `experiencia`, `sexo`, `raca`
 -- Indexes for table `armazem`
 --
 ALTER TABLE `armazem`
-  ADD PRIMARY KEY (`id_armazem`);
+  ADD PRIMARY KEY (`id_armazem`,`id_personagem`),
+  ADD KEY `FK_armPersonagem` (`id_personagem`);
+
+--
+-- Indexes for table `armazeminventario`
+--
+ALTER TABLE `armazeminventario`
+  ADD PRIMARY KEY (`id_armazem`,`id_item`),
+  ADD KEY `FK_armInvItem` (`id_item`);
 
 --
 -- Indexes for table `inventario`
 --
 ALTER TABLE `inventario`
   ADD PRIMARY KEY (`id_personagem`,`id_item`),
-  ADD KEY `id_personagem` (`id_personagem`),
-  ADD KEY `id_item` (`id_item`);
+  ADD KEY `FK_invItem` (`id_item`);
 
 --
 -- Indexes for table `item`
@@ -134,11 +130,24 @@ ALTER TABLE `personagem`
 --
 
 --
+-- Constraints for table `armazem`
+--
+ALTER TABLE `armazem`
+  ADD CONSTRAINT `FK_armArmazemInventario` FOREIGN KEY (`id_armazem`) REFERENCES `armazeminventario` (`id_armazem`),
+  ADD CONSTRAINT `FK_armPersonagem` FOREIGN KEY (`id_personagem`) REFERENCES `personagem` (`id_personagem`);
+
+--
+-- Constraints for table `armazeminventario`
+--
+ALTER TABLE `armazeminventario`
+  ADD CONSTRAINT `FK_armInvItem` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`);
+
+--
 -- Constraints for table `inventario`
 --
 ALTER TABLE `inventario`
-  ADD CONSTRAINT `inventario_ibfk_1` FOREIGN KEY (`id_personagem`) REFERENCES `personagem` (`id_personagem`),
-  ADD CONSTRAINT `inventario_ibfk_2` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`);
+  ADD CONSTRAINT `FK_invItem` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`),
+  ADD CONSTRAINT `FK_invPersonagem` FOREIGN KEY (`id_personagem`) REFERENCES `personagem` (`id_personagem`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
