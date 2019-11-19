@@ -71,6 +71,8 @@ td .image img{
     margin-top: 10vh;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
 }
 
 .escopoImage{
@@ -82,12 +84,15 @@ td .image img{
 }
 
 .escopoBotoes, .escopoImage{
-    float: left;
+    
 }
 
 .escopoBotoes{
     position: relative;
     margin-left: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     
 }
 
@@ -96,19 +101,25 @@ td .image img{
 }
 
 .botoes{
-    max-width: 17vh;
+    max-width: 120px;
+    text-align: center;
 }
 
 .btnComprar{
     background-color: seagreen;
     padding: 10px 20px;
     border-radius: 10px 10px 10px 10px;
+    margin-bottom: 1vh;
 }
 
 .btnPre{
     background-color: rgb(255, 196, 0);
     padding: 10px 20px;
     border-radius: 10px 10px 10px 10px;
+}
+
+.btnComprar:hover , .btnPre:hover{
+    cursor: pointer;
 }
 
 .selecionado{
