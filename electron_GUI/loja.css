@@ -1,0 +1,95 @@
+.titleConteudo{
+    text-align: center;
+}
+
+.titleConteudo h1{
+    color: rgba(100, 100, 100, 0.8);
+}
+
+#conteudo{
+    width: 90%;
+    margin: auto;
+}
+
+table{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+    border-spacing: 1vh 0.5vh; 
+}
+
+table tr td{
+    position: relative;
+    padding: 20px 30px;
+    background-color: rgba(150, 150, 150, 1);
+    color: black;
+    overflow: hidden;
+    height: 5vh;
+    width: 3vh;
+}
+
+table tr td *{
+    color: black;
+}
+td .quantia{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    font-size: 8pt;
+    z-index: 1;
+}
+
+td .preco{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10pt;
+    color: rgb(252, 248, 0);
+    z-index: 1;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+td .image img{
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+.compra{
+    width: 90%;
+    margin: auto;
+    margin-top: 10vh;
+    position: relative;
+}
+
+.escopoImage{
+    width: 30%;
+}
+
+.imagemCompra img{
+    width: 100%;
+}
+
+.escopoBotoes, .escopoImage{
+    display: inline-block;
+}
+
+.escopoBotoes{
+    margin-left: 3vh;
+}
+
+.btnComprar{
+    background-color: seagreen;
+    padding: 10px 20px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.btnPre{
+    background-color: rgb(255, 196, 0);
+    padding: 10px 20px;
+    border-radius: 10px 10px 10px 10px;
+}

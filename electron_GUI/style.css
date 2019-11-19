@@ -5,85 +5,32 @@
 }
 
 body{
-    background-color: #1C1C1C;
-    max-width: 1280px;
-    margin: auto;
-}
-
-#topBar{
-    position: relative;
-}
-
-.infos-program{
-    float: left;
-    max-width: 200px;
-    background-color: rgba(150, 150, 150, 0.8);
-    padding: 10px 0px;
-    border-radius: 20px 0px 20px 0px;
-}
-
-.bottom-program *{
-    display: inline-block;
-}
-
-.infos-user{
-    /* max-width: 50vw; */
+    background-color: rgba(0, 0, 0, 0.74);
+    max-width: 1024px;
     width: auto;
-    /* background-color: rgba(150, 0, 150, 0.8); */
-    display: flex;
-    justify-content: space-around;
-    
-}
-
-.infos-user *{
-    display: inline-block;
-    padding: 10px 50px;
-    border-radius: 20px 0px 20px 0px;
-    border: 1px solid rgba(200, 200, 200, 0.2);
-    /*background-color: rgba(150, 150, 150, 0.8);*/
+    margin: auto;
 }
 
 .menu{
-    clear: both;
     list-style: none;
-    background-color: rgba(150, 150, 150, 0.2);
-    border-radius: 0 20px 0px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.74);
+    border-radius: 20px 20px 20px 20px;
 }
 
 .menu li{
-    display: inline-block;
-    padding: 10px 70px;
-    border-radius: 0 20px 0px 20px;
-    font-size: 14pt;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.menu li a{
+    text-decoration: none;
 }
 
 .menu li:hover{
-    background-color: rgba(150, 150, 150, 0.2);
-    transition: 1s background-color;
+    background-color: rgba(50,50,50,0.54);
     cursor: pointer;
-}
-
-.conteudo{
-    width: 100%;
-
-}
-
-.PersonagemArea{
-    width: 50%;
-    height: 50vh;
-    margin: auto;
-    padding-top: 10vh;
-}
-
-.Sprite{
-    line-height: 50vh;
-    width: 100%;
-    text-align: center;
-}
-
-.Sprite img{
-    width: 250px;
-    text-align: center;
 }
