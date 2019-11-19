@@ -9,6 +9,7 @@
 #conteudo{
     width: 90%;
     margin: auto;
+    overflow: hidden;
 }
 
 table{
@@ -26,6 +27,11 @@ table tr td{
     overflow: hidden;
     height: 5vh;
     width: 3vh;
+    border: 1px solid rgba(0,0,0,0);
+}
+
+table tr td:hover{
+    cursor: pointer;
 }
 
 table tr td *{
@@ -64,6 +70,7 @@ td .image img{
     margin: auto;
     margin-top: 10vh;
     position: relative;
+    overflow: hidden;
 }
 
 .escopoImage{
@@ -75,11 +82,21 @@ td .image img{
 }
 
 .escopoBotoes, .escopoImage{
-    display: inline-block;
+    float: left;
 }
 
 .escopoBotoes{
+    position: relative;
     margin-left: 3vh;
+    
+}
+
+.infos-item{
+    
+}
+
+.botoes{
+    max-width: 17vh;
 }
 
 .btnComprar{
@@ -92,4 +109,8 @@ td .image img{
     background-color: rgb(255, 196, 0);
     padding: 10px 20px;
     border-radius: 10px 10px 10px 10px;
+}
+
+.selecionado{
+    border: 1px solid cyan;
 }
