@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2019 at 10:55 PM
+-- Generation Time: Nov 22, 2019 at 12:44 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -126,6 +126,7 @@ INSERT INTO `item` (`id_item`, `nome`, `preco_base`, `dano`, `forca`, `intelecto
 
 CREATE TABLE `personagem` (
   `id_personagem` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `experiencia` float DEFAULT 0,
   `sexo` char(1) NOT NULL,
@@ -137,12 +138,12 @@ CREATE TABLE `personagem` (
 -- Dumping data for table `personagem`
 --
 
-INSERT INTO `personagem` (`id_personagem`, `name`, `experiencia`, `sexo`, `classe`, `carteira`) VALUES
-(1, 'Matador_de_OncaXD', 8000, 'M', 'viking', 0),
-(2, 'Caçador_de_Vampiros12', 12000, 'M', 'elfo sombrio', 1200000),
-(3, 'MainYassuo2kk', 1280000, 'M', 'elfo', 202020),
-(4, 'Gabrutinha', 66666, 'F', 'viking', 123456),
-(5, 'AnnaBele', 6666670, 'F', 'elfo negro', 6666670);
+INSERT INTO `personagem` (`id_personagem`, `id_usuario`, `name`, `experiencia`, `sexo`, `classe`, `carteira`) VALUES
+(1, 4, 'Matador_de_OncaXD', 8000, 'M', 'viking', 0),
+(2, 4, 'Caçador_de_Vampiros12', 12000, 'M', 'elfo sombrio', 1200000),
+(3, 2, 'MainYassuo2kk', 1280000, 'M', 'elfo', 202020),
+(4, 1, 'Gabrutinha', 66666, 'F', 'viking', 123456),
+(5, 3, 'AnnaBele', 6666670, 'F', 'elfo negro', 6666670);
 
 -- --------------------------------------------------------
 
@@ -165,6 +166,28 @@ CREATE TABLE `pre_compra` (
 INSERT INTO `pre_compra` (`id`, `id_item`, `preco_unit`, `quantidade`, `id_comprador`) VALUES
 (1, 6, 58, 200, 2),
 (2, 6, 62, 66, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `login` varchar(256) NOT NULL COMMENT 'Email do usuario',
+  `senha` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `login`, `senha`) VALUES
+(1, 'gabi@jogador.com', '123456'),
+(2, 'yasuosoloq@jogador.com', '121212'),
+(3, 'aninha2019@jogador.com', 'X666X'),
+(4, 'pedraoDestruidor@jogador.com', 'SoPedrada');
 
 -- --------------------------------------------------------
 
@@ -227,7 +250,7 @@ ALTER TABLE `item`
 --
 ALTER TABLE `personagem`
   ADD PRIMARY KEY (`id_personagem`),
-  ADD KEY `experiencia` (`experiencia`);
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indexes for table `pre_compra`
@@ -236,6 +259,12 @@ ALTER TABLE `pre_compra`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_comprador` (`id_comprador`),
   ADD KEY `id_item` (`id_item`);
+
+--
+-- Indexes for table `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- Indexes for table `venda`
@@ -274,6 +303,12 @@ ALTER TABLE `pre_compra`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `venda`
 --
 ALTER TABLE `venda`
@@ -297,6 +332,12 @@ ALTER TABLE `armazeminventario`
 ALTER TABLE `inventario`
   ADD CONSTRAINT `FK_invItem` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`),
   ADD CONSTRAINT `FK_invPersonagem` FOREIGN KEY (`id_personagem`) REFERENCES `personagem` (`id_personagem`);
+
+--
+-- Constraints for table `personagem`
+--
+ALTER TABLE `personagem`
+  ADD CONSTRAINT `personagem_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Constraints for table `pre_compra`
