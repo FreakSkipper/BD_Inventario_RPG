@@ -2,8 +2,8 @@
 -- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 22, 2019 at 12:44 AM
+-- Host: localhost
+-- Generation Time: Nov 22, 2019 at 08:30 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -323,8 +323,8 @@ ALTER TABLE `venda`
 --
 ALTER TABLE `armazeminventario`
   ADD CONSTRAINT `FK_armInvItem` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`),
-  ADD CONSTRAINT `armazeminventario_ibfk_1` FOREIGN KEY (`id_armazem`) REFERENCES `armazem` (`id_armazem`),
-  ADD CONSTRAINT `armazeminventario_ibfk_2` FOREIGN KEY (`id_personagem`) REFERENCES `personagem` (`id_personagem`);
+  ADD CONSTRAINT `armazeminventario_ibfk_2` FOREIGN KEY (`id_personagem`) REFERENCES `personagem` (`id_personagem`),
+  ADD CONSTRAINT `armazeminventario_ibfk_3` FOREIGN KEY (`id_armazem`) REFERENCES `armazem` (`id_armazem`);
 
 --
 -- Constraints for table `inventario`
