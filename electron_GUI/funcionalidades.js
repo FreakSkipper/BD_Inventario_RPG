@@ -70,7 +70,3 @@ function equiparItem(){
         peca.innerHTML = "<scan class=\"image\">" + imagem + "</scan>";
     }
 }
-
-function myfuc(){
-    
-}
