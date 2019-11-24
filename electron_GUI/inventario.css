@@ -1,0 +1,25 @@
+.itensInv{
+    position: relative;
+    padding: 20px 30px;
+    background-color: rgba(150, 150, 150, 1);
+    color: black;
+    overflow: hidden;
+    height: 5vh;
+    width: 3vh;
+    border: 1px solid rgba(0,0,0,0);
+}
+
+.itensInv{
+    margin-bottom: 1vh;
+}
+
+.itensInv:hover{
+    cursor: pointer;
+}
+
+.itensInv .image img{
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+}

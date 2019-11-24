@@ -4,6 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="stylesheet" href="loja.css" type="text/css">
+        <link rel="stylesheet" href="inventario.css" type="text/css">
+        <script src="./funcionalidades.js"></script>
         <title>RPG - Client v1.2</title>
     </head>
     <body>
@@ -26,9 +29,132 @@
             </ul>
         </div>
 		<div id="conteudo">
-			<div class="PersonagemArea">
-                <div class="Sprite">
-                    <img src="bruxa.png">
+			<div class="loja">
+                <table>
+                    <tr>
+                        <td onclick="selecionarItem(this, 'Machadinho do Bidu')">
+                            <scan class="quantia">x15</scan>
+                            <scan class="preco">1,200</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+                        <td onclick="selecionarItem(this, 'Machadinho Acalamador')">
+                            <scan class="quantia">x10</scan>
+                            <scan class="preco">2,200</scan>
+                            <scan class="image"><img src="_imagens/Acalamador.png" alt=""></scan>
+                        </td>
+                        <td onclick="selecionarItem(this, 'Espada das Chamas')">
+                            <scan class="quantia">x2</scan>
+                            <scan class="preco">1,560</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+						<td onclick="selecionarItem(this, 'Espada Congelante')">
+                            <scan class="quantia">x35</scan>
+                            <scan class="preco">3,870</scan>
+                            <scan class="image"><img src="_imagens/espadacongelante.png" alt=""></scan>
+                        </td>
+						<td onclick="selecionarItem(this, 'Pudim Amassado')">
+                            <scan class="quantia">x10</scan>
+                            <scan class="preco">10,699</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+						<td onclick="selecionarItem(this, 'Creeper Troll')">
+                            <scan class="quantia">x65</scan>
+                            <scan class="preco">1,250</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+						<td onclick="selecionarItem(this, 'Poção de Cura')">
+                            <scan class="quantia">x17</scan>
+                            <scan class="preco">0,200</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+						<td onclick="selecionarItem(this, 'Vestido da Morte')">
+                            <scan class="quantia">x15</scan>
+                            <scan class="preco">0,200</scan>
+                            <scan class="image"><img src="_imagens/vestidodamorte.png" alt=""></scan>
+                        </td>
+						<td onclick="selecionarItem(this, 'Pasta de Mel')">
+                            <scan class="quantia">x21</scan>
+                            <scan class="preco">1,560</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td onclick="selecionarItem(this, 'Machadinho do Bidu')">
+                            <scan class="quantia">x15</scan>
+                            <scan class="preco">1,200</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+                        <td onclick="selecionarItem(this, 'Machadinho do Bidu')">
+                            <scan class="quantia">x15</scan>
+                            <scan class="preco">1,200</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+						<td onclick="selecionarItem(this, 'Machadinho do Bidu')">
+                            <scan class="quantia">x15</scan>
+                            <scan class="preco">1,200</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+						<td onclick="selecionarItem(this, 'Machadinho do Bidu')">
+                            <scan class="quantia">x15</scan>
+                            <scan class="preco">1,200</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+						<td onclick="selecionarItem(this, 'Machadinho do Bidu')">
+                            <scan class="quantia">x15</scan>
+                            <scan class="preco">1,200</scan>
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="compra">
+                <div class="inventario-esquerdo">
+                    <ul>
+                        <li class="itensInv cabeca" id="cabeca">
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </li>
+                        <li class="itensInv roupa" id="roupa">
+                            <scan class="image"><img src="_imagens/vestidodamorte.png" alt=""></scan>
+                        </li>
+                        <li class="itensInv calca" id="calca">
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </li>
+                        <li class="itensInv sapato" id="sapato">
+                            <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        </li>
+                    </ul>
+                </div>
+                <div class="escopoImage">
+                    <div class="imagemCompra" id="imagemCompra">
+                        <img src="_imagens/machado.jpg" alt="">
+                    </div>
+                </div>
+                <div class="inventario-direito">
+                        <ul>
+                            <li class="itensInv cabeca" id="cabeca">
+                                <scan class="image"><img src="_imagens/Acalamador.png" alt=""></scan>
+                            </li>
+                            <li class="itensInv roupa" id="roupa">
+                                <scan class="image"><img src="_imagens/espadacongelante.png" alt=""></scan>
+                            </li>
+                            <li class="itensInv calca" id="calca">
+                                <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                            </li>
+                            <li class="itensInv sapato" id="sapato">
+                                <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                            </li>
+                        </ul>
+                    </div>
+                <div class="escopoBotoes">
+                    <div class="infos-item">
+                        <p>Nome: <scan class="nomeItem" id="nomeItem">Nenhum</scan></p>
+                        <p>Preço: <scan class="precoItem" id="precoItem">Nenhum</scan></p>
+                        <p>Quantia a Venda: <scan class="qtdItem" id="qtdItem">Nenhum</scan></p>
+                    </div>
+                    <div class="botoes">
+                        <p class="btnComprar">Comprar</p>
+                        <p class="btnPre">Pré-Compra</p>
+                    </div>
                 </div>
             </div>
 		</div>
