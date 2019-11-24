@@ -24,35 +24,20 @@
     left: 0%;
 }
 
-.imagemCompra{
-    text-align: center;
-}
-
-.imagemCompra img{
-    width: 40%;
-    text-align: center;
-}
-
-.escopoBotoes{
-    width: 100%;
-    margin: 0;
-}
-
-.infos-item{
-    text-align: center;
-}
-
-.botoes{
-    margin: auto;
-    margin-top: 5vh;
-}
-
-.conteudo-compra{
-    margin: auto;
-    width: 80%;
-    position: relative;
-    overflow: hidden;
+#conteudo{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 10vh;
+}
+
+.inventario, .armazem{
+    width: 30%;
+}
+.inventario h2, .armazem h2{
+    text-align: center;
+}
+
+.inventario ul li, .armazem ul li{
+    display: inline-block;
 }

@@ -12,14 +12,14 @@
     overflow: hidden;
 }
 
-table{
+.loja ul{
     margin-top: 2vh;
     margin-bottom: 2vh;
 
-    border-spacing: 1vh 0.5vh; 
+    /* border-spacing: 1vh 0.5vh;  */
 }
 
-table tr td{
+.loja ul li{
     position: relative;
     padding: 20px 30px;
     background-color: rgba(150, 150, 150, 1);
@@ -28,16 +28,18 @@ table tr td{
     height: 5vh;
     width: 3vh;
     border: 1px solid rgba(0,0,0,0);
+    display: inline-block;
+    
 }
 
-table tr td:hover{
+.loja ul li:hover{
     cursor: pointer;
 }
 
-table tr td *{
+.loja ul li *{
     color: black;
 }
-td .quantia{
+.loja ul li .quantia{
     position: absolute;
     top: 0%;
     right: 0%;
@@ -45,7 +47,7 @@ td .quantia{
     z-index: 1;
 }
 
-td .preco{
+.loja ul li .preco{
     position: absolute;
     bottom: 0%;
     left: 50%;
@@ -58,7 +60,7 @@ td .preco{
     text-align: center;
 }
 
-td .image img{
+.loja ul li .image img{
     position: absolute;
     width: 100%;
     top: 0%;
@@ -122,6 +124,6 @@ td .image img{
     cursor: pointer;
 }
 
-.selecionado{
+.loja .selecionado{
     border: 1px solid cyan;
 }
