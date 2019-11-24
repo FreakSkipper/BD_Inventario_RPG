@@ -31,75 +31,89 @@
 		<div id="conteudo">
 			<div class="loja">
                 <ul>
-                    <li onclick="selecionarItem(this, 'Machadinho do Bidu')" class="selected">
+                    <li onclick="selecionarItem(this, 'Machadinho do Bidu')">
                         <scan class="quantia">x15</scan>
-                        <scan class="preco">1,200</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">0</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Machadinho Acalamador')">
                         <scan class="quantia">x10</scan>
-                        <scan class="preco">2,200</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/Acalamador.png" alt=""></scan>
+                        <scan class="tipo">1</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Espada das Chamas')">
                         <scan class="quantia">x2</scan>
-                        <scan class="preco">1,560</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">2</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Espada Congelante')">
                         <scan class="quantia">x35</scan>
-                        <scan class="preco">3,870</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/espadacongelante.png" alt=""></scan>
+                        <scan class="tipo">3</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Pudim Amassado')">
                         <scan class="quantia">x10</scan>
-                        <scan class="preco">10,699</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">4</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Creeper Troll')">
                         <scan class="quantia">x65</scan>
-                        <scan class="preco">1,250</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">5</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Poção de Cura')">
                         <scan class="quantia">x17</scan>
-                        <scan class="preco">0,200</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">6</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Vestido da Morte')">
                         <scan class="quantia">x15</scan>
-                        <scan class="preco">0,200</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/vestidodamorte.png" alt=""></scan>
+                        <scan class="tipo">7</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Pasta de Mel')">
                         <scan class="quantia">x21</scan>
-                        <scan class="preco">1,560</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">0</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Machadinho do Bidu')">
                         <scan class="quantia">x15</scan>
-                        <scan class="preco">1,200</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">0</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Machadinho do Bidu')">
                         <scan class="quantia">x15</scan>
-                        <scan class="preco">1,200</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">0</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Machadinho do Bidu')">
                         <scan class="quantia">x15</scan>
-                        <scan class="preco">1,200</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">0</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Machadinho do Bidu')">
                         <scan class="quantia">x15</scan>
-                        <scan class="preco">1,200</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">0</scan>
                     </li>
                     <li onclick="selecionarItem(this, 'Machadinho do Bidu')">
                         <scan class="quantia">x15</scan>
-                        <scan class="preco">1,200</scan>
+                        <scan class="preco">cabeça</scan>
                         <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="tipo">0</scan>
                     </li>
                 </ul>
             </div>
@@ -132,7 +146,8 @@
                                 <p>Quantia: <scan class="qtdItem" id="qtdItem">Nenhum</scan></p>
                             </div>
                             <div class="botoes">
-                                <p class="btnComprar">Equipar</p>
+                                <p class="btnComprar" onclick="equiparItem()">Equipar</p>
+                                <p class="btnComprar">Vender</p>
                             </div>
                         </div>
                     </div>
