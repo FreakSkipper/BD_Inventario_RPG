@@ -60,3 +60,7 @@
 .tipo{
     display: none;
 }
+
+#listaItens li{
+    margin-right: 0.5vh;
+}

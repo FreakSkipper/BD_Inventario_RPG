@@ -7,9 +7,10 @@
         <link rel="stylesheet" href="loja.css" type="text/css">
         <link rel="stylesheet" href="inventario.css" type="text/css">
         <script src="./funcionalidades.js"></script>
+        <script src="./inventario.js"></script>
         <title>RPG - Client v1.2</title>
     </head>
-    <body>
+    <body onload="carregarInventario()">
         <!-- <div id="topBar">
             <div class="infos-program">
                 <p class="program-title">RPG - CLIENT v0.1</p>
@@ -30,7 +31,7 @@
         </div>
 		<div id="conteudo">
 			<div class="loja">
-                <ul>
+                <ul id="listaItens">
                     <li onclick="selecionarItem(this, 'Machadinho do Bidu')">
                         <scan class="quantia">x15</scan>
                         <scan class="preco">cabeça</scan>
