@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 22, 2019 at 08:30 PM
+-- Generation Time: Nov 25, 2019 at 05:48 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -67,6 +67,17 @@ INSERT INTO `armazeminventario` (`id_armazem`, `id_personagem`, `id_item`, `quan
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `equipamento`
+--
+
+CREATE TABLE `equipamento` (
+  `id_personagem` int(11) NOT NULL,
+  `id_item` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `inventario`
 --
 
@@ -99,6 +110,7 @@ CREATE TABLE `item` (
   `intelecto` int(11) NOT NULL,
   `vigor` int(11) NOT NULL,
   `armadura` int(11) NOT NULL,
+  `tipo` int(11) NOT NULL,
   `classes` varchar(32) NOT NULL,
   `durabilidade` int(11) NOT NULL,
   `desc` varchar(256) DEFAULT NULL,
@@ -109,14 +121,14 @@ CREATE TABLE `item` (
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`id_item`, `nome`, `preco_base`, `dano`, `forca`, `intelecto`, `vigor`, `armadura`, `classes`, `durabilidade`, `desc`, `flags`) VALUES
-(1, 'Machadão do Jurado', 470580, 1200, 344, 0, 586, 0, 'guerreiro.', 85, NULL, ''),
-(2, 'Picareta de Mineração do Peão', 29083400, 62, 16, 0, 24, 0, '', 90, NULL, NULL),
-(3, 'Cajado de Dominância', 10180000, 24, 0, 68, 23, 0, '', 120, NULL, NULL),
-(4, 'Cajado do Sabio da Montanha', 410000000, 536, 0, 1531, 586, 0, 'elfo; elfo negro.', 85, NULL, ''),
-(5, 'Cajado Corrompido do Gladiador', 123069000, 406, 0, 1531, 586, 0, 'elfo.', 70, NULL, ''),
-(6, 'Poção de vida', 50, 0, 0, 0, 0, 0, '', 0, 'Recupera 200 de vida.', ''),
-(7, 'Poção de mana', 65, 0, 0, 0, 0, 0, '', 0, 'Recupera 150 de mana.', NULL);
+INSERT INTO `item` (`id_item`, `nome`, `preco_base`, `dano`, `forca`, `intelecto`, `vigor`, `armadura`, `tipo`, `classes`, `durabilidade`, `desc`, `flags`) VALUES
+(1, 'Machadão do Jurado', 470580, 1200, 344, 0, 586, 0, 0, 'guerreiro', 85, NULL, ''),
+(2, 'Picareta de Mineração do Peão', 29083400, 62, 16, 0, 24, 0, 0, '', 90, NULL, NULL),
+(3, 'Cajado de Dominância', 10180000, 24, 0, 68, 23, 0, 0, '', 120, NULL, NULL),
+(4, 'Cajado do Sabio da Montanha', 410000000, 536, 0, 1531, 586, 0, 0, 'elfo; elfo negro.', 85, NULL, ''),
+(5, 'Cajado Corrompido do Gladiador', 123069000, 406, 0, 1531, 586, 0, 0, 'elfo.', 70, NULL, ''),
+(6, 'Poção de vida', 50, 0, 0, 0, 0, 0, 8, '', 0, 'Recupera 200 de vida.', ''),
+(7, 'Poção de mana', 65, 0, 0, 0, 0, 0, 8, '', 0, 'Recupera 150 de mana.', NULL);
 
 -- --------------------------------------------------------
 
@@ -166,6 +178,32 @@ CREATE TABLE `pre_compra` (
 INSERT INTO `pre_compra` (`id`, `id_item`, `preco_unit`, `quantidade`, `id_comprador`) VALUES
 (1, 6, 58, 200, 2),
 (2, 6, 62, 66, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tipo_item`
+--
+
+CREATE TABLE `tipo_item` (
+  `id` int(11) NOT NULL,
+  `descricao` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tipo_item`
+--
+
+INSERT INTO `tipo_item` (`id`, `descricao`) VALUES
+(0, 'arma primária'),
+(1, 'arma secundária'),
+(2, 'cabeça'),
+(3, 'parte superior'),
+(4, 'parte inferior'),
+(5, 'calçado'),
+(6, 'colar'),
+(7, 'anel'),
+(8, 'consumível');
 
 -- --------------------------------------------------------
 
@@ -233,6 +271,13 @@ ALTER TABLE `armazeminventario`
   ADD KEY `id_personagem` (`id_personagem`);
 
 --
+-- Indexes for table `equipamento`
+--
+ALTER TABLE `equipamento`
+  ADD PRIMARY KEY (`id_personagem`,`id_item`),
+  ADD KEY `id_item` (`id_item`);
+
+--
 -- Indexes for table `inventario`
 --
 ALTER TABLE `inventario`
@@ -243,7 +288,8 @@ ALTER TABLE `inventario`
 -- Indexes for table `item`
 --
 ALTER TABLE `item`
-  ADD PRIMARY KEY (`id_item`);
+  ADD PRIMARY KEY (`id_item`),
+  ADD KEY `tipo` (`tipo`);
 
 --
 -- Indexes for table `personagem`
@@ -259,6 +305,12 @@ ALTER TABLE `pre_compra`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_comprador` (`id_comprador`),
   ADD KEY `id_item` (`id_item`);
+
+--
+-- Indexes for table `tipo_item`
+--
+ALTER TABLE `tipo_item`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `usuario`
@@ -327,11 +379,24 @@ ALTER TABLE `armazeminventario`
   ADD CONSTRAINT `armazeminventario_ibfk_3` FOREIGN KEY (`id_armazem`) REFERENCES `armazem` (`id_armazem`);
 
 --
+-- Constraints for table `equipamento`
+--
+ALTER TABLE `equipamento`
+  ADD CONSTRAINT `equipamento_ibfk_1` FOREIGN KEY (`id_personagem`) REFERENCES `personagem` (`id_personagem`),
+  ADD CONSTRAINT `equipamento_ibfk_2` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`);
+
+--
 -- Constraints for table `inventario`
 --
 ALTER TABLE `inventario`
   ADD CONSTRAINT `FK_invItem` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`),
   ADD CONSTRAINT `FK_invPersonagem` FOREIGN KEY (`id_personagem`) REFERENCES `personagem` (`id_personagem`);
+
+--
+-- Constraints for table `item`
+--
+ALTER TABLE `item`
+  ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`tipo`) REFERENCES `tipo_item` (`id`);
 
 --
 -- Constraints for table `personagem`
