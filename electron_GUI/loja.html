@@ -6,9 +6,10 @@
         <link rel="stylesheet" href="style.css" type="text/css">
         <link rel="stylesheet" href="loja.css" type="text/css">
         <script src="./funcionalidades.js"></script>
+        <script src="./loja.js"></script>
         <title>RPG - Client v1.2</title>
     </head>
-    <body>
+    <body onload="carregarLoja()">
         <!-- <div id="topBar">
             <div class="infos-program">
                 <p class="program-title">RPG - CLIENT v0.1</p>
@@ -30,7 +31,7 @@
 		<div id="conteudo">
             <div class="loja">
                 <!-- Lista de Itens a Venda -->
-                <ul> 
+                <ul id="itensLoja"> 
                     <li onclick="selecionarItem(this, 'Machadinho do Bidu')" class="selected">
                         <scan class="quantia">x15</scan>
                         <scan class="preco">1,200</scan>
@@ -118,6 +119,67 @@
                     <div class="botoes">
                         <p class="btnComprar">Comprar</p>
                         <p class="btnPre">Pré-Compra</p>
+                    </div>
+                </div>
+                <div class="atributos">
+                    <div class="pDano">
+                        <div class="distr">
+                            <p>Dano:</p>
+                            <p>100%</p>
+                        </div>
+                        <div class="progresso" id="pDano">
+                            
+                        </div>
+                    </div>
+                    <div class="pForca">
+                        <div class="distr">
+                            <p>Força:</p>
+                            <p>100%</p>
+                        </div>
+                        
+                        <div class="progresso" id="pForca">
+                            
+                        </div>
+                    </div>
+                    <div class="pIntelecto">
+                        <div class="distr">
+                            <p>Intelecto:</p>
+                            <p>100%</p>
+                        </div>
+                        
+                        <div class="progresso" id="pIntelecto">
+                            
+                        </div>
+                    </div>
+                    <div class="pVigor">
+                        <div class="distr">
+                            <p>Vigor</p>
+                            <p>100%</p>
+                        </div>
+                        
+                        <div class="progresso" id="pVigor">
+                            
+                        </div>
+                    </div>
+                    <div class="pArmadura">
+                        <div class="distr">
+                            <p>Armadura</p>
+                            <p>100%</p>
+                        </div>
+                        
+                        <div class="progresso" id="pArmadura">
+                            
+                        </div>
+                    </div>
+                    <div class="pDurabilidade">
+                        <div class="distr">
+                            <p>Durabilidade</p>
+                            <p>100%</p>
+                        </div>
+                        
+                        <div class="progresso" id="pDurabilidade">
+                            
+                        </div>
                     </div>
                 </div>
             </div>

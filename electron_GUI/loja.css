@@ -29,6 +29,7 @@
     width: 3vh;
     border: 1px solid rgba(0,0,0,0);
     display: inline-block;
+    margin-right: 0.5vh;
     
 }
 
@@ -75,6 +76,11 @@
     overflow: hidden;
     display: flex;
     flex-direction: row;
+
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    background-color: rgba(100, 100, 100, 0.2);
+    padding: 2vh;
+    border-radius: 10px;
 }
 
 .escopoImage{
@@ -85,20 +91,12 @@
     width: 100%;
 }
 
-.escopoBotoes, .escopoImage{
-    
-}
-
 .escopoBotoes{
     position: relative;
     margin-left: 3vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
-}
-
-.infos-item{
     
 }
 
@@ -115,7 +113,7 @@
 }
 
 .btnPre{
-    background-color: rgb(255, 196, 0);
+    background-color: rgb(46, 38, 56);
     padding: 10px 20px;
     border-radius: 10px 10px 10px 10px;
 }
@@ -126,4 +124,37 @@
 
 .loja .selecionado{
     border: 1px solid cyan;
+}
+
+.sumir{
+    display: none;
+}
+
+.atributos{
+    /* margin-top: 2vh; */
+    width: 50%;
+
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    background-color: rgba(100, 100, 100, 0.2);
+    padding: 2vh;
+    border-radius: 10px;
+}
+
+.pDano, .pForca, .pIntelecto, .pVigor, .pArmadura, .pDurabilidade{
+    width: 100%;
+    height: 10%;
+    margin-bottom: 2vh;
+}
+
+.progresso{
+    width: 100%;
+    height: 40%;
+    background-color: rgb(109, 116, 177);
+    border-radius: 10px;
+}
+
+.distr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
