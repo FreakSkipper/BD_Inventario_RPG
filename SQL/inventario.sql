@@ -2,8 +2,8 @@
 -- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 25, 2019 at 05:48 PM
+-- Host: 127.0.0.1
+-- Generation Time: Nov 26, 2019 at 02:47 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -75,6 +75,14 @@ CREATE TABLE `equipamento` (
   `id_item` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `equipamento`
+--
+
+INSERT INTO `equipamento` (`id_personagem`, `id_item`) VALUES
+(4, 1),
+(5, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -113,6 +121,7 @@ CREATE TABLE `item` (
   `tipo` int(11) NOT NULL,
   `classes` varchar(32) NOT NULL,
   `durabilidade` int(11) NOT NULL,
+  `peso` float NOT NULL DEFAULT 0,
   `desc` varchar(256) DEFAULT NULL,
   `flags` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -121,14 +130,28 @@ CREATE TABLE `item` (
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`id_item`, `nome`, `preco_base`, `dano`, `forca`, `intelecto`, `vigor`, `armadura`, `tipo`, `classes`, `durabilidade`, `desc`, `flags`) VALUES
-(1, 'Machadão do Jurado', 470580, 1200, 344, 0, 586, 0, 0, 'guerreiro', 85, NULL, ''),
-(2, 'Picareta de Mineração do Peão', 29083400, 62, 16, 0, 24, 0, 0, '', 90, NULL, NULL),
-(3, 'Cajado de Dominância', 10180000, 24, 0, 68, 23, 0, 0, '', 120, NULL, NULL),
-(4, 'Cajado do Sabio da Montanha', 410000000, 536, 0, 1531, 586, 0, 0, 'elfo; elfo negro.', 85, NULL, ''),
-(5, 'Cajado Corrompido do Gladiador', 123069000, 406, 0, 1531, 586, 0, 0, 'elfo.', 70, NULL, ''),
-(6, 'Poção de vida', 50, 0, 0, 0, 0, 0, 8, '', 0, 'Recupera 200 de vida.', ''),
-(7, 'Poção de mana', 65, 0, 0, 0, 0, 0, 8, '', 0, 'Recupera 150 de mana.', NULL);
+INSERT INTO `item` (`id_item`, `nome`, `preco_base`, `dano`, `forca`, `intelecto`, `vigor`, `armadura`, `tipo`, `classes`, `durabilidade`, `peso`, `desc`, `flags`) VALUES
+(1, 'Machadao do Jurado', 470580, 1200, 344, 0, 586, 0, 0, 'guerreiro', 85, 20, NULL, ''),
+(2, 'Picareta de Mineracao do Peao', 29083400, 62, 16, 0, 24, 0, 0, '', 90, 15, NULL, NULL),
+(3, 'Cajado de Dominancia', 10180000, 24, 0, 68, 23, 0, 0, '', 120, 16.5, NULL, NULL),
+(4, 'Cajado do Sabio da Montanha', 410000000, 536, 0, 1531, 586, 0, 0, 'elfo; elfo negro.', 85, 14.6, NULL, ''),
+(5, 'Cajado Corrompido do Gladiador', 123069000, 406, 0, 1531, 586, 0, 0, 'elfo.', 70, 19.8, NULL, ''),
+(6, 'Pocao de vida', 50, 0, 0, 0, 0, 0, 8, '', 0, 0.1, 'Recupera 200 de vida', ''),
+(7, 'Pocao de mana', 65, 0, 0, 0, 0, 0, 8, '', 0, 0.1, 'Recupera 150 de mana', NULL),
+(10, 'Anel Medonho do Pirata', 4530240, 0, 0, 0, 12, 0, 7, '', 0, 0.2, NULL, NULL),
+(11, 'Anel das Mares', 2000010, 18, 0, 0, 0, 0, 7, '', 0, 0, 'A misteriosa safira revela as profundezas rodopiantes do mar.', NULL),
+(14, 'Elmo de Placa do Gladiador Notorio', 40530200, 0, 495, 495, 864, 471, 2, 'guerreiro', 100, 5, NULL, NULL),
+(15, 'Capuz do Senhor do Fogo', 13780800, 0, 0, 16, 37, 13, 2, 'elfo', 100, 0, NULL, NULL),
+(16, 'Adaga Eletrificada', 97660000, 152, 0, 0, 191, 0, 1, '', 45, 4, NULL, NULL),
+(17, 'Punhal do Feiticeiro', 8560450, 80, 0, 8, 8, 0, 1, '', 32, 3.2, NULL, NULL),
+(18, 'Peitoral do Passageiro Sortudo', 100000000, 0, 826, 826, 1551, 845, 3, '', 165, 18, NULL, NULL),
+(19, 'Peitoral Glorioso', 10780100, 0, 0, 0, 0, 579, 3, '', 115, 14, NULL, NULL),
+(20, 'Calcas do Golpe Magico', 60940800, 0, 0, 19, 9, 10, 4, '', 56, 8.5, NULL, NULL),
+(21, 'Calcas de Couro Repulsivas', 54650200, 0, 0, 44, 65, 38, 4, '', 68, 6.2, NULL, NULL),
+(24, 'Sapatos de Tecido Grosso', 300420, 0, 0, 0, 0, 24, 5, '', 30, 0, NULL, NULL),
+(25, 'Sapatos do Conjurador', 210360, 0, 0, 0, 0, 32, 5, '', 35, 0, NULL, NULL),
+(26, 'Colar Danificado', 12000400, 0, 0, 188, 0, 0, 0, '', 100, 0, NULL, NULL),
+(27, 'Colar Danificado', 12000400, 0, 0, 188, 0, 0, 6, '', 100, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -152,7 +175,7 @@ CREATE TABLE `personagem` (
 
 INSERT INTO `personagem` (`id_personagem`, `id_usuario`, `name`, `experiencia`, `sexo`, `classe`, `carteira`) VALUES
 (1, 4, 'Matador_de_OncaXD', 8000, 'M', 'viking', 0),
-(2, 4, 'Caçador_de_Vampiros12', 12000, 'M', 'elfo sombrio', 1200000),
+(2, 4, 'Cacador_de_Vampiros12', 12000, 'M', 'elfo sombrio', 1200000),
 (3, 2, 'MainYassuo2kk', 1280000, 'M', 'elfo', 202020),
 (4, 1, 'Gabrutinha', 66666, 'F', 'viking', 123456),
 (5, 3, 'AnnaBele', 6666670, 'F', 'elfo negro', 6666670);
@@ -195,15 +218,15 @@ CREATE TABLE `tipo_item` (
 --
 
 INSERT INTO `tipo_item` (`id`, `descricao`) VALUES
-(0, 'arma primária'),
-(1, 'arma secundária'),
-(2, 'cabeça'),
+(0, 'arma primaria'),
+(1, 'arma secundaria'),
+(2, 'cabeca'),
 (3, 'parte superior'),
 (4, 'parte inferior'),
-(5, 'calçado'),
+(5, 'calcado'),
 (6, 'colar'),
 (7, 'anel'),
-(8, 'consumível');
+(8, 'consumivel');
 
 -- --------------------------------------------------------
 
@@ -340,7 +363,7 @@ ALTER TABLE `armazem`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `personagem`
