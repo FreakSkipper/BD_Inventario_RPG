@@ -158,3 +158,11 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+#vendedor{
+    color:red;
+}
+
+.sumir{
+    display: none;
+}

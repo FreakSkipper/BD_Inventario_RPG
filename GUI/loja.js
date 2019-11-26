@@ -1,3 +1,18 @@
+var data = ({
+    client: 'mysql',
+    connection:{
+        host: 'localhost',
+        user: 'root',
+        password: null,
+        database: 'rpg'
+    }
+});
+
+var connection = require('knex')(data);
+
+if(connection) console.log("Conexao com Banco de Dados Sucedida!");
+
+
 function carregarLoja(){
     var lista = document.getElementById("itensLoja");
 
@@ -20,7 +35,18 @@ function carregarLoja(){
             "<scan class=\"sumir durabilidade\">" + itens[i][9] + "</scan>" +
         "</li>";
         anterior = lista.innerHTML;
-    }    
+    }
+
+    var result = connection('armazem')
+        .select('*')
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((erro) => {
+            console.log("Erro na leitura do Armazem: ", erro);
+            return;
+        });
+    alert(result);
 }
 
 function bancoDeDados(){
@@ -60,6 +86,22 @@ function bancoDeDados2(){
     [7,"Espada Congelante", 6, 1200, 10,10,10,10,10,"Ninja e Guerreiro", 20, 10, "FA",15],
     [8,"Espada Congelante", 7, 1200, 10,10,10,10,10,"Ninja e Guerreiro", 20, 10, "FA",15]
     ];
+
+    return result;
+}
+
+async function bda(){
+    var result;
+
+    await db('armazem')
+        .select('*')
+        .then((response) => {
+            result = response;
+        })
+        .catch((erro) => {
+            console.log("Erro na leitura do Armazem: ", erro);
+            return;
+        });
 
     return result;
 }

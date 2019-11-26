@@ -33,6 +33,11 @@
 
 .inventario, .armazem{
     width: 30%;
+
+    border: 1px solid rgba(150, 150, 150, 0.2);
+    background-color: rgba(200, 200, 200, 0.2);
+    padding: 2vh;
+    border-radius: 10px;
 }
 .inventario h2, .armazem h2{
     text-align: center;
