@@ -69,7 +69,7 @@
                     <li onclick="selecionarItem(this, '<?php echo $rs['nome'] ?>')" class="selected">
                         <scan class="quantia">x<?php echo $rs['quantidade'] ?></scan>
                         <scan class="preco"><?php echo $rs['preco_unit'] ?></scan>
-                        <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="image"><img src="_imagens/<?php echo str_replace(" ", "", $rs['nome']) ?>.jpg" alt=""></scan>
                         <scan class="sumir anunciante"><?php echo $rs['name'] ?></scan>
                     </li>
                     <?php

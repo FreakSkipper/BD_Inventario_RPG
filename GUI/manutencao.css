@@ -1,0 +1,52 @@
+#conteudo{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10vh;
+}
+
+.box{
+    display: inline-block;
+    padding: 30px;
+    background-color: rgba(150, 150, 150, 0.2);
+    border-radius: 10px;
+}
+
+.box:hover{
+    cursor: pointer;
+    background-color: rgba(50, 50, 50, 0.5);
+    transition: 1s background-color;
+}
+
+.box p{
+    font-size: 20pt;
+}
+
+.jogadores{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+
+    border: 1px solid rgba(150, 150, 150, 0.2);
+    background-color: rgba(200, 200, 200, 0.2);
+    padding: 2vh;
+    border-radius: 10px;
+}
+
+#itens{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+
+    border: 1px solid rgba(150, 150, 150, 0.2);
+    background-color: rgba(200, 200, 200, 0.2);
+    padding: 2vh;
+    border-radius: 10px;
+}
+
+select, option, input{
+    color:black;
+}

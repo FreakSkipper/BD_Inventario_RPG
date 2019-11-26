@@ -26,7 +26,7 @@
     color: black;
     overflow: hidden;
     height: 5vh;
-    width: 3vh;
+    width: 1vh;
     border: 1px solid rgba(0,0,0,0);
     display: inline-block;
     margin-right: 0.5vh;
@@ -46,6 +46,7 @@
     right: 0%;
     font-size: 8pt;
     z-index: 1;
+    color: white;
 }
 
 .loja ul li .preco{

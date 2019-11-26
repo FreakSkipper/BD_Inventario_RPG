@@ -107,7 +107,9 @@
                     <?php
                     $tipo = 'elmo';
                     while($rs = $stmt->fetch(PDO::FETCH_ASSOC)){
-                        if($rs['tipo'] == 1)
+                        if($rs['tipo'] == 0)
+                            $tipo = 'elmo';
+                        else if($rs['tipo'] == 1)
                             $tipo = 'armadura';
                         else if($rs['tipo'] == 2)
                             $tipo = 'inferior';
@@ -126,7 +128,7 @@
                     <li onclick="selecionarItem(this, '<?php echo $rs['nome'] ?>')">
                         <scan class="quantia">x<?php echo $rs['quantidade'] ?></scan>
                         <scan class="preco"><?php echo $tipo ?></scan>
-                        <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                        <scan class="image"><img src="_imagens/<?php echo str_replace(" ", "", $rs['nome']) ?>.jpg" alt=""></scan>
                         <scan class="tipo"><?php echo $rs['tipo'] ?></scan>
                     </li>
                     <?php
@@ -147,13 +149,21 @@
                         <ul id="inventario-esquerdo">
                             <?php
                             $rows = $stmt->fetchAll();
+                            $tipo = "cabeca";
                             foreach ($rows as $r) {
-                                if ($r['tipo'] > 4){
+                                if($rs['tipo'] == 0)
+                                    $tipo = 'cabeca';
+                                else if($rs['tipo'] == 1)
+                                    $tipo = 'roupa';
+                                else if($rs['tipo'] == 2)
+                                    $tipo = 'calca';
+                                else if($rs['tipo'] == 3)
+                                    $tipo = 'sapato';
+                                else
                                     continue;
-                                }
                             ?>
-                            <li class="itensInv cabeca" id="cabeca" onclick="selecionarItem(this, '<?php echo $r['nome'] ?>')">
-                                <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                            <li class="itensInv <?php echo $tipo ?>" id="<?php echo $tipo ?>" onclick="selecionarItem(this, '<?php echo $r['nome'] ?>')">
+                                <scan class="image"><img src="_imagens/<?php echo str_replace(" ", "", $r['nome']) ?>.jpg" alt=""></scan>
                             </li>
                             <?php
                             }
@@ -192,13 +202,22 @@
                     <div class="inventario-direito">
                         <ul id="inventario-direito">
                             <?php
+                            $rows = $stmt->fetchAll();
+                            $tipo = "espada";
                             foreach ($rows as $r) {
-                                if ($r['tipo'] <= 4){
+                                if($rs['tipo'] == 4)
+                                    $tipo = 'espada';
+                                else if($rs['tipo'] == 5)
+                                    $tipo = 'escudo';
+                                else if($rs['tipo'] == 6)
+                                    $tipo = 'adaga';
+                                else if($rs['tipo'] == 7)
+                                    $tipo = 'magia';
+                                else
                                     continue;
-                                }
                             ?>
-                            <li class="itensInv cabeca" id="cabeca" onclick="selecionarItem(this, '<?php echo $r['nome'] ?>')">
-                                <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
+                            <li class="itensInv <?php echo $tipo ?>" id="<?php echo $tipo ?>" onclick="selecionarItem(this, '<?php echo $r['nome'] ?>')">
+                                <scan class="image"><img src="_imagens/<?php echo str_replace(" ", "", $s['nome']) ?>.jpg" alt=""></scan>
                             </li>
                             <?php
                             }
