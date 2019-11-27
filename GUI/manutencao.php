@@ -90,7 +90,7 @@
                         <label>Jogador:</label>
                         <select name="listaJogadores">
                         <?php 
-                            $stmt = $servidor->prepare("SELECT id_personagem,name FROM personagem");
+                            $stmt = $servidor->prepare("SELECT id_personagem, name FROM personagem");
                             $stmt->setFetchMode(PDO::FETCH_ASSOC);
                             if(!$stmt->execute()){
                                 echo "Falha ao carregar as Vendas.";

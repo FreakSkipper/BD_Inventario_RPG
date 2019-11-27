@@ -45,6 +45,7 @@ body{
     cursor: pointer;
 }
 
-.conteudo{
+#conteudo{
     max-width: 70%;
+    margin:auto;
 }
