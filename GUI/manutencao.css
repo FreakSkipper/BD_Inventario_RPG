@@ -25,11 +25,11 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     display: none;
 
     border: 1px solid rgba(150, 150, 150, 0.2);
-    background-color: rgba(200, 200, 200, 0.2);
+    background-color: rgba(100, 100, 100, 0.2);
     padding: 2vh;
     border-radius: 10px;
 }
@@ -48,5 +48,74 @@
 }
 
 select, option, input{
-    color:black;
+    color:white;
+}
+
+table *{
+    
+}
+
+table{
+    border-collapse: collapse;
+    background-color: rgb(39, 39, 39);
+}
+
+td,th{
+    border:1px solid rgb(109, 109, 109);
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #353535;
+}
+
+tr:hover{
+    background-color: rgb(58, 58, 58);
+    transition: 2s background-color;
+}
+
+.optJogadores{
+    margin-top: 5vh;
+}
+
+.formItem{
+    border: 1px solid rgba(150, 150, 150, 0.2);
+    background-color: rgba(200, 200, 200, 0.2);
+    padding: 2vh;
+    border-radius: 10px;
+}
+
+.formItem div{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.formItem input, .formItem select{
+    background-color: rgba(100, 100, 100, 0.2);
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border-style: none;
+    border: 1px solid #aaa;
+}
+
+.formItem input[type=number]{
+    background-color: rgba(100, 100, 100, 0.2);
+    width: 95%;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.formItem select option{
+    background-color: black;
+}
+
+.formItem button{
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+    color: white;
+    background-color: green;
+    margin-top: 10px;
 }

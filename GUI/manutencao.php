@@ -178,19 +178,19 @@
                             
                             <tr>
                             <td class="tIdI"><?php echo $r['id_item']; ?></td>
-                            <td class="tNomeI"><?php echo $r['nome']; ?></td>
-                            <td class="tPreco"><?php echo $r['preco_base']; ?></td>
-                            <td class="tNome"><?php echo $r['dano']; ?></td>
-                            <td class="tNome"><?php echo $r['forca']; ?></td>
-                            <td class="tNome"><?php echo $r['intelecto']; ?></td>
-                            <td class="tNome"><?php echo $r['vigor']; ?></td>
-                            <td class="tNome"><?php echo $r['armadura']; ?></td>
-                            <td class="tNome"><?php echo $r['tipo']; ?></td>
-                            <td class="tNome"><?php echo $r['classes']; ?></td>
-                            <td class="tNome"><?php echo $r['durabilidade']; ?></td>
-                            <td class="tNome"><?php echo $r['peso']; ?></td>
-                            <td class="tNome"><?php echo $r['desc']; ?></td>
-                            <td class="tNome"><?php echo $r['flags']; ?></td>
+                            <td class="tNomeI pad"><?php echo $r['nome']; ?></td>
+                            <td class="tPreco pad"><?php echo $r['preco_base']; ?></td>
+                            <td class="tNome pad"><?php echo $r['dano']; ?></td>
+                            <td class="tNome pad"><?php echo $r['forca']; ?></td>
+                            <td class="tNome pad"><?php echo $r['intelecto']; ?></td>
+                            <td class="tNome pad"><?php echo $r['vigor']; ?></td>
+                            <td class="tNome pad"><?php echo $r['armadura']; ?></td>
+                            <td class="tNome pad"><?php echo $r['tipo']; ?></td>
+                            <td class="tNome pad"><?php echo $r['classes']; ?></td>
+                            <td class="tNome pad"><?php echo $r['durabilidade']; ?></td>
+                            <td class="tNome pad"><?php echo $r['peso']; ?></td>
+                            <td class="tNome pad"><?php echo $r['desc']; ?></td>
+                            <td class="tNome pad"><?php echo $r['flags']; ?></td>
                             
                             </tr>
                         <?php

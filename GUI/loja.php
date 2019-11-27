@@ -1,7 +1,7 @@
 <?php
 	include("php/Conectar.php");
 	
-	$stmt = $servidor->prepare("SELECT item.nome, venda.preco_unit, venda.quantidade, personagem.name FROM item INNER JOIN venda ON item.id_item = venda.id_item INNER JOIN personagem ON personagem.id_personagem = venda.id_vendedor");
+	$stmt = $servidor->prepare("SELECT * FROM item INNER JOIN venda ON item.id_item = venda.id_item INNER JOIN personagem ON personagem.id_personagem = venda.id_vendedor INNER JOIN tipo_item ON item.tipo = tipo_item.id");
 	if(!$stmt->execute()){
 		echo "Falha ao carregar as Vendas.";
 	}
@@ -27,6 +27,23 @@
                 var objPrecoItem = document.getElementById("precoItem");
                 var objQtdItem = document.getElementById("qtdItem");
                 var objVendedor = document.getElementById("vendedor");
+                var objDanoT = document.getElementById("pDanoT");
+                var objForcaT = document.getElementById("pForcaT");
+                var objIntelectoT = document.getElementById("pIntelectoT");
+                var objVigorT = document.getElementById("pVigorT");
+                var objArmaduraT = document.getElementById("pArmaduraT");
+                var objDurabilidadeT = document.getElementById("pDurabilidadeT");
+                var objTipo = document.getElementById("tipo");
+                var objClasses = document.getElementById("classes");
+                var objPeso = document.getElementById("peso");
+
+                var objDano = document.getElementById("pDano");
+                var objForca = document.getElementById("pForca");
+                var objIntelecto = document.getElementById("pIntelecto");
+                var objVigor = document.getElementById("pVigor");
+                var objArmadura = document.getElementById("pArmadura");
+                var objDurabilidade = document.getElementById("pDurabilidade");
+
                 var filhos = objeto.children;
                 
                 for (var i = 0; i < filhos.length; i++){
@@ -42,6 +59,39 @@
 
                     else if(filhos[i].classList.contains("anunciante")){
                         objVendedor.innerHTML = filhos[i].innerHTML;
+                    }
+                    else if(filhos[i].classList.contains("dano")){
+                        objDanoT.innerHTML = filhos[i].innerHTML;
+                        objDano.style.width = String(Number(filhos[i].innerHTML) * 100 / 2000) + "%";
+                    }
+                    else if(filhos[i].classList.contains("forca")){
+                        objForcaT.innerHTML = filhos[i].innerHTML;
+                        objForca.style.width = String(Number(filhos[i].innerHTML) * 100 / 2000) + "%";
+                    }
+                    else if(filhos[i].classList.contains("intelecto")){
+                        objIntelectoT.innerHTML = filhos[i].innerHTML;
+                        objIntelecto.style.width = String(Number(filhos[i].innerHTML) * 100 / 2000) + "%";
+                    }
+                    else if(filhos[i].classList.contains("vigor")){
+                        objVigorT.innerHTML = filhos[i].innerHTML;
+                        objVigor.style.width = String(Number(filhos[i].innerHTML) * 100 / 2000) + "%";
+                    }
+                    else if(filhos[i].classList.contains("armadura")){
+                        objArmaduraT.innerHTML = filhos[i].innerHTML;
+                        objArmadura.style.width = String(Number(filhos[i].innerHTML) * 100 / 2000) + "%";
+                    }
+                    else if(filhos[i].classList.contains("tipo")){
+                        objTipo.innerHTML = filhos[i].innerHTML;
+                    }
+                    else if(filhos[i].classList.contains("classes")){
+                        objClasses.innerHTML = filhos[i].innerHTML;
+                    }
+                    else if(filhos[i].classList.contains("durabilidade")){
+                        objDurabilidadeT.innerHTML = filhos[i].innerHTML;
+                        objDurabilidade.style.width = String(Number(filhos[i].innerHTML) * 100 / 2000) + "%";
+                    }
+                    else if(filhos[i].classList.contains("peso")){
+                        objPeso.innerHTML = filhos[i].innerHTML;
                     }
                 }
             
@@ -71,6 +121,15 @@
                         <scan class="preco"><?php echo $rs['preco_unit'] ?></scan>
                         <scan class="image"><img src="_imagens/<?php echo str_replace(" ", "", $rs['nome']) ?>.jpg" alt=""></scan>
                         <scan class="sumir anunciante"><?php echo $rs['name'] ?></scan>
+                        <scan class="sumir dano"><?php echo $rs['dano'] ?></scan>
+                        <scan class="sumir forca"><?php echo $rs['forca'] ?></scan>
+                        <scan class="sumir intelecto"><?php echo $rs['intelecto'] ?></scan>
+                        <scan class="sumir vigor"><?php echo $rs['vigor'] ?></scan>
+                        <scan class="sumir armadura"><?php echo $rs['armadura'] ?></scan>
+                        <scan class="sumir tipo"><?php echo $rs['descricao'] ?></scan>
+                        <scan class="sumir classes"><?php echo $rs['classes'] ?></scan>
+                        <scan class="sumir durabilidade"><?php echo $rs['durabilidade'] ?></scan>
+                        <scan class="sumir peso"><?php echo $rs['peso'] ?></scan>
                     </li>
                     <?php
                     }
@@ -88,6 +147,9 @@
                         <p>Nome: <scan class="nomeItem" id="nomeItem">Nenhum</scan></p>
                         <p>Preço: <scan class="precoItem" id="precoItem">Nenhum</scan></p>
                         <p>Quantia a Venda: <scan class="qtdItem" id="qtdItem">Nenhum</scan></p>
+                        <p>Tipo: <scan class="tipo" id="tipo">Nenhum</scan></p>
+                        <p>Classes: <scan class="classes" id="classes">Nenhum</scan></p>
+                        <p>Peso: <scan class="peso" id="peso">Nenhum</scan></p>
                         <p>Vendedor: <scan class="vendedor" id="vendedor">Nenhum</scan></p>
                     </div>
                     <div class="botoes">
@@ -99,60 +161,72 @@
                     <div class="pDano">
                         <div class="distr">
                             <p>Dano:</p>
-                            <p>100%</p>
+                            <p id="pDanoT">100%</p>
                         </div>
-                        <div class="progresso" id="pDano">
-                            
+                        <div class="progress-fundo">
+                            <div class="progresso" id="pDano">
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="pForca">
                         <div class="distr">
                             <p>Força:</p>
-                            <p>100%</p>
+                            <p id="pForcaT">100%</p>
                         </div>
                         
-                        <div class="progresso" id="pForca">
-                            
+                        <div class="progress-fundo">
+                            <div class="progresso" id="pForca">
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="pIntelecto">
                         <div class="distr">
                             <p>Intelecto:</p>
-                            <p>100%</p>
+                            <p id="pIntelectoT">100%</p>
                         </div>
                         
-                        <div class="progresso" id="pIntelecto">
-                            
+                        <div class="progress-fundo">
+                            <div class="progresso" id="pIntelecto">
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="pVigor">
                         <div class="distr">
                             <p>Vigor</p>
-                            <p>100%</p>
+                            <p id="pVigorT">100%</p>
                         </div>
                         
-                        <div class="progresso" id="pVigor">
-                            
+                        <div class="progress-fundo">
+                            <div class="progresso" id="pVigor">
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="pArmadura">
                         <div class="distr">
                             <p>Armadura</p>
-                            <p>100%</p>
+                            <p id="pArmaduraT">100%</p>
                         </div>
                         
-                        <div class="progresso" id="pArmadura">
-                            
+                        <div class="progress-fundo">
+                            <div class="progresso" id="pArmadura">
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="pDurabilidade">
                         <div class="distr">
                             <p>Durabilidade</p>
-                            <p>100%</p>
+                            <p id="pDurabilidadeT">100%</p>
                         </div>
                         
-                        <div class="progresso" id="pDurabilidade">
-                            
+                        <div class="progress-fundo">
+                            <div class="progresso" id="pDurabilidade">
+                                
+                            </div>
                         </div>
                     </div>
                 </div>

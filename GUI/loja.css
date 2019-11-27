@@ -98,19 +98,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 40%;
     
 }
 
 .botoes{
-    max-width: 120px;
+    max-width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: row;
 }
 
 .btnComprar{
     background-color: seagreen;
     padding: 10px 20px;
     border-radius: 10px 10px 10px 10px;
-    margin-bottom: 1vh;
+    margin-right: 1vh;
 }
 
 .btnPre{
@@ -147,9 +150,16 @@
     margin-bottom: 2vh;
 }
 
-.progresso{
+.progress-fundo{
     width: 100%;
     height: 40%;
+    background-color: rgb(97, 97, 97);
+    border-radius: 10px;
+}
+
+.progresso{
+    width: 100%;
+    height: 100%;
     background-color: rgb(109, 116, 177);
     border-radius: 10px;
 }
