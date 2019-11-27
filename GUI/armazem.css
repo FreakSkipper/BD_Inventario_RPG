@@ -33,16 +33,24 @@
 
 .inventario, .armazem{
     width: 30%;
+    max-height: 40%;
 
-    border: 1px solid rgba(150, 150, 150, 0.2);
-    background-color: rgba(200, 200, 200, 0.2);
+    border: 1px solid rgba(150, 150, 150, 0.8);
+    background-color: rgb(68, 28, 114);
     padding: 2vh;
     border-radius: 10px;
 }
 .inventario h2, .armazem h2{
     text-align: center;
+    margin-bottom: 2vh;
 }
 
 .inventario ul li, .armazem ul li{
     display: inline-block;
+}
+
+.passDir, .passEsq{
+    padding: 10px;
+    background-color: rgba(100, 100, 100, 1);
+    margin-top: 10vh;
 }

@@ -5,25 +5,35 @@
 }
 
 body{
-    background-color: rgba(0, 0, 0, 0.74);
-    max-width: 1024px;
+    /* background-color: rgba(155, 67, 255, 0.2); */
+    background-repeat: no-repeat;
+    
     width: auto;
     margin: auto;
+
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#menuBar{
+    width: 100%;
+    background-color: rgb(68, 28, 114);
 }
 
 .menu{
     list-style: none;
     display: flex;
     justify-content: space-around;
-    background-color: rgba(0, 0, 0, 0.74);
-    border-radius: 20px 20px 20px 20px;
+    max-width: 80%;
+    margin:auto;
+    /* border-radius: 20px 20px 20px 20px; */
 }
 
 .menu li{
     padding: 10px;
     width: 100%;
     text-align: center;
-    border-radius: 20px 20px 20px 20px;
+    /* border-radius: 20px 20px 20px 20px; */
 }
 
 .menu li a{
@@ -33,4 +43,8 @@ body{
 .menu li:hover{
     background-color: rgba(50,50,50,0.54);
     cursor: pointer;
+}
+
+.conteudo{
+    max-width: 70%;
 }

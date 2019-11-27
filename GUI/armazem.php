@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="style.css" type="text/css">
         <link rel="stylesheet" href="loja.css" type="text/css">
         <link rel="stylesheet" href="armazem.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <script src="./funcionalidades.js"></script>
         <title>RPG - Client v1.2</title>
     </head>
@@ -59,8 +60,8 @@
                 </ul>
             </div>
             <div class="escopoButoes">
-                <p>></p>
-                <p><</p>
+                <p class="passDir">></p>
+                <p class="passEsq"><</p>
             </div>
             <div class="armazem">
                 <h2>Armazém</h2>
