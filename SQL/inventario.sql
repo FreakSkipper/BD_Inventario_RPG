@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2019 at 02:47 AM
+-- Generation Time: Nov 26, 2019 at 03:05 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -80,6 +80,10 @@ CREATE TABLE `equipamento` (
 --
 
 INSERT INTO `equipamento` (`id_personagem`, `id_item`) VALUES
+(2, 10),
+(2, 15),
+(2, 18),
+(2, 21),
 (4, 1),
 (5, 3);
 
@@ -100,8 +104,10 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id_personagem`, `id_item`, `quantidade`) VALUES
+(2, 16, 1),
 (4, 1, 1),
-(5, 3, 1);
+(5, 3, 1),
+(5, 27, 1);
 
 -- --------------------------------------------------------
 
@@ -150,7 +156,6 @@ INSERT INTO `item` (`id_item`, `nome`, `preco_base`, `dano`, `forca`, `intelecto
 (21, 'Calcas de Couro Repulsivas', 54650200, 0, 0, 44, 65, 38, 4, '', 68, 6.2, NULL, NULL),
 (24, 'Sapatos de Tecido Grosso', 300420, 0, 0, 0, 0, 24, 5, '', 30, 0, NULL, NULL),
 (25, 'Sapatos do Conjurador', 210360, 0, 0, 0, 0, 32, 5, '', 35, 0, NULL, NULL),
-(26, 'Colar Danificado', 12000400, 0, 0, 188, 0, 0, 0, '', 100, 0, NULL, NULL),
 (27, 'Colar Danificado', 12000400, 0, 0, 188, 0, 0, 6, '', 100, 0, NULL, NULL);
 
 -- --------------------------------------------------------
