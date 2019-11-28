@@ -28,12 +28,14 @@
                 var objNomeItem = document.getElementById("nomeItem");
                 var objPrecoItem = document.getElementById("precoItem");
                 var objQtdItem = document.getElementById("qtdItem");
+                var objQtdItemI = document.getElementById("quantiaI");
                 var objIdItem = document.getElementById("idItem");
                 var filhos = objeto.children;
 
                 for (var i = 0; i < filhos.length; i++){
                     if(filhos[i].classList.contains("quantia")){
                         objQtdItem.innerHTML = filhos[i].innerHTML;
+                        objQtdItemI.value = filhos[i].innerHTML.replace("x", "");
                     }
                     else if(filhos[i].classList.contains("preco")){
                         objPrecoItem.innerHTML = filhos[i].innerHTML;
@@ -92,6 +94,10 @@
                     }
                     peca.innerHTML = "<scan class=\"image\">" + imagem + "</scan>";
                 }
+            }
+
+            function surgirModale(){
+                document.getElementById("modale").style.display = "block";
             }
         </script>
         <script src="./inventario.js"></script>
@@ -204,10 +210,11 @@
                                 <form action="php/SQL_EquiparItem.php" method="post">
                                     <input type="text" name="idItem" id="idItem" class="sumir" value="nenhum"/>
                                     <input type="text" name="idJogador" id="idJogador" class="sumir" value="<?php echo $idJogador ?>"/>
-                                    <button class="btnComprar" type="submit" class="">Equipar</button>
+                                    <input type="number" name="quantiaI" id="quantiaI" class="sumir" value="0"/>
+                                    <button class="btnComprar" type="submit">Equipar</button>
                                 </form>
                                 <!-- <p class="btnComprar" onclick="equiparItem()">Equipar</p> -->
-                                <p class="btnComprar">Vender</p>
+                                <button class="btnComprar" onclick="surgirModale()">Vender</p>
                             </div>
                         </div>
                     </div>
@@ -233,19 +240,6 @@
                             <?php
                             }
                             ?>
-
-                            <!-- <li class="itensInv espada" id="espada" onclick="selecionarItem(this, 'Machadinho do Bidu')">
-                                <scan class="image"><img src="_imagens/Acalamador.png" alt=""></scan>
-                            </li>
-                            <li class="itensInv escudo" id="escudo" onclick="selecionarItem(this, 'Machadinho do Bidu')">
-                                <scan class="image"><img src="_imagens/espadacongelante.png" alt=""></scan>
-                            </li>
-                            <li class="itensInv adaga" id="adaga" onclick="selecionarItem(this, 'Machadinho do Bidu')">
-                                <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
-                            </li>
-                            <li class="itensInv magia" id="magia" onclick="selecionarItem(this, 'Machadinho do Bidu')">
-                                <scan class="image"><img src="_imagens/machado.jpg" alt=""></scan>
-                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -253,6 +247,9 @@
 		</div>
         <!-- You can also require other files to run in this process -->
         <!-- <script src="./renderer.js"></script>         -->
+        <div class="modale" id="modale">
+            
+        </div>
     </body>
 
 </html>
