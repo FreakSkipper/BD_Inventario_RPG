@@ -1,7 +1,8 @@
 <?php
 	include("php/Conectar.php");
-	
-	$stmt = $servidor->prepare("SELECT item.id_item, item.nome, inventario.quantidade, item.tipo FROM inventario INNER JOIN item ON item.id_item = inventario.id_item WHERE inventario.id_personagem = 5");
+	$idJogador = 5;
+    $stmt = $servidor->prepare("SELECT item.id_item, item.nome, inventario.quantidade, item.tipo FROM inventario INNER JOIN item ON item.id_item = inventario.id_item WHERE inventario.id_personagem = :idJogador");
+    $stmt->bindParam(':idJogador', $idJogador);
 	if(!$stmt->execute()){
 		echo "Falha ao carregar o Inventario.";
 	}
@@ -139,7 +140,8 @@
                     <?php
                     }
 
-                    $stmt = $servidor->prepare("SELECT item.nome, item.tipo FROM item INNER JOIN equipamento ON item.id_item = equipamento.id_item WHERE equipamento.id_personagem = 5 ORDER BY item.tipo");
+                    $stmt = $servidor->prepare("SELECT item.nome, item.tipo FROM item INNER JOIN equipamento ON item.id_item = equipamento.id_item WHERE equipamento.id_personagem = :idJogador ORDER BY item.tipo");
+                    $stmt->bindParam(':idJogador', $idJogador);
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     if(!$stmt->execute()){
                         echo "Falha ao carregar o Inventario.";
@@ -201,6 +203,7 @@
                             <div class="botoes">
                                 <form action="php/SQL_EquiparItem.php" method="post">
                                     <input type="text" name="idItem" id="idItem" class="sumir" value="nenhum"/>
+                                    <input type="text" name="idJogador" id="idJogador" class="sumir" value="<?php echo $idJogador ?>"/>
                                     <button class="btnComprar" type="submit" class="">Equipar</button>
                                 </form>
                                 <!-- <p class="btnComprar" onclick="equiparItem()">Equipar</p> -->
