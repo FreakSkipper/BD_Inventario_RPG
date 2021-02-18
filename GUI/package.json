@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/FreakSkipper/BD_Inventario_RPG#readme",
   "devDependencies": {
-    "electron": "^7.0.0"
+    "electron": "^9.4.0"
   }
 }
